@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "613146933640",
+    "project_id": "findmy-138d4",
+    "storage_bucket": "findmy-138d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613146933640:android:0f39df98d8636b367ba23d",
+        "android_client_info": {
+          "package_name": "com.example.findmyjob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613146933640-5fff5hgqse0pgdbmpb86ptr0lboe19gh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKVsZLEeACYoL6kYjTJYeu0USrPA7gqNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613146933640-5fff5hgqse0pgdbmpb86ptr0lboe19gh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "613146933640-249qao3r668u0hsk6ro436c3cr2ffbft.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.findmyjob.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
