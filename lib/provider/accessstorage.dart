@@ -5,9 +5,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class AccessStorage extends ChangeNotifier {
-  List get imageUrl => _image;
-  List _image = [];
-  File? _imagePath;
+  File? get imageUrl => _image;
+  File? _image;
 
   Future<void> getAccess(context) async {
     final access = await [Permission.camera, Permission.storage].request();
@@ -25,7 +24,7 @@ class AccessStorage extends ChangeNotifier {
   void chooseFromStorage(ImageSource source) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
-      _imagePath = File(pickedFile.path);
+      _image = File(pickedFile.path);
       notifyListeners();
     }
   }
@@ -33,8 +32,7 @@ class AccessStorage extends ChangeNotifier {
   void pickImage(ImageSource source) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
-      _imagePath = File(pickedFile.path);
-      _image.add(_imagePath);
+      _image = File(pickedFile.path);
       // ignore: unnecessary_null_comparison
       if (pickedFile == null) return;
       //Import dart:core
