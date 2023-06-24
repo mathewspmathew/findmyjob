@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:findmyjob/views/screens/job_det.dart';
 import 'package:findmyjob/views/screens/job_details.dart';
+import 'package:findmyjob/views/screens/job_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:findmyjob/views/screens/my_profile_screen.dart';
@@ -141,7 +142,7 @@ class HomeScreen extends StatelessWidget {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),
-                    itemCount: jobLists.length,
+                    itemCount: snapshot.data!.docs.length,
                     itemBuilder: (context, index) {
                       final DocumentSnapshot documentSnapshot =
                             snapshot.data!.docs[index];
@@ -152,9 +153,18 @@ class HomeScreen extends StatelessWidget {
                       } else {
                         
                         return JobItemCard(
-                          jobs: documentSnapshot[index]['category'],
-                          jobTitle: documentSnapshot[index]['location'],
-                          jobsLogoUrl: documentSnapshot[index]['joblogo'],
+                          jobs: documentSnapshot['category'],
+                          jobTitle: documentSnapshot['location'],
+                          jobsLogoUrl: documentSnapshot['joblogo'],
+                           widget:JobDetailsScreen(
+                            jobTitle:  documentSnapshot['category'],
+                            description:  documentSnapshot['description'],
+                            salary:  documentSnapshot['salary'],
+                            selectDistrict:  documentSnapshot['district'],
+                            selectPanchayath:  documentSnapshot['panchayat'],
+                            posteddate:  documentSnapshot['postdate'],
+                            phoneNumber:  documentSnapshot['phonenumber'],
+                          )
 
                         );
 

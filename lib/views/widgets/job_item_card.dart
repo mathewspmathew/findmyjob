@@ -3,26 +3,17 @@ import 'package:findmyjob/views/screens/job_details_screen.dart';
 import 'findmyjob_button.dart';
 
 class JobItemCard extends StatelessWidget {
-  final String jobs;
-  final String jobTitle;
-  final String jobsLogoUrl;
-  final String? description;
-  final String? salary;
-  final String? phoneNumber;
-  final String? district;
-  final String? panchayat;
-  final String? posteddate;
+  final String? jobs;
+  final String? jobTitle;
+  final String? jobsLogoUrl;
+  final Widget widget;
   const JobItemCard({
     Key? key,
-    required this.jobs,
-    required this.jobTitle,
-    this.phoneNumber,
-    required this.jobsLogoUrl,
-    this.description,
-    this.salary,
-    this.district,
-    this.panchayat,
-     this.posteddate,
+    this.jobs,
+    required this.widget,
+    this.jobTitle,
+    this.jobsLogoUrl,
+ 
   }) : super(key: key);
 
   @override
@@ -37,19 +28,19 @@ class JobItemCard extends StatelessWidget {
             height: 8,
           ),
           Image.asset(
-            jobsLogoUrl,
+            jobsLogoUrl!,
             width: 64,
             height: 54,
           ),
           Text(
-            jobs,
+            jobs!,
             style: const TextStyle(
               color: Colors.grey,
               fontSize: 12,
             ),
           ),
           Text(
-            jobTitle,
+            jobTitle!,
             overflow: TextOverflow.ellipsis,
             maxLines: 2,
             textAlign: TextAlign.center,
@@ -62,17 +53,7 @@ class JobItemCard extends StatelessWidget {
           findmyjobButton(
               title: 'Apply',
               onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => JobDetailsScreen(
-                            jobTitle: jobTitle,
-                            description: description,
-                            salary: salary,
-                            selectDistrict: district,
-                            selectPanchayath: panchayat,
-                            posteddate: posteddate,
-                            phoneNumber: phoneNumber,
-                          )))),
+                  context, MaterialPageRoute(builder: (context) => widget))),
         ],
       ),
     );
