@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:findmyjob/provider/accessstorage.dart';
 import 'package:findmyjob/views/screens/home_screen.dart';
-import 'package:findmyjob/views/screens/job_details.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +13,6 @@ class AddJob extends StatefulWidget {
 }
 
 class _AddJobState extends State<AddJob> {
-  List<Map<String, dynamic>> jobList = [];
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController locationController = TextEditingController();
@@ -34,6 +32,7 @@ class _AddJobState extends State<AddJob> {
   String? selectTitle;
   String? posteddate;
   String? joblogo;
+  String? profimg;
 
   void addJobData() {
     if (selectTitle == 'Cleaning') {
@@ -53,9 +52,7 @@ class _AddJobState extends State<AddJob> {
         joblogo = 'assets/images/catering.jpg';
       });
     }
-    DateTime now = DateTime.now();
-    posteddate =
-        '${now.year}-${(now.month)}-${(now.day)} ${(now.hour)}:${(now.minute)}';
+
     firestore.collection('jobdetails').add({
       'category': selectTitle,
       'description': descriptionController.text,
@@ -64,8 +61,9 @@ class _AddJobState extends State<AddJob> {
       'location': locationController.text,
       'salary': salaryController.text,
       'phonenumber': phoneController.text,
-      'postdate': now.toString(),
+      'postdate': posteddate.toString(),
       'joblogo': joblogo,
+      'profimg': profimg
     });
   }
 
@@ -89,7 +87,7 @@ class _AddJobState extends State<AddJob> {
                       width: double.infinity,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(142, 77, 69, 158),
+                        color: const Color.fromARGB(142, 77, 69, 158),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                             color: const Color.fromARGB(255, 71, 70, 70)),
@@ -114,7 +112,7 @@ class _AddJobState extends State<AddJob> {
                               value: title,
                               child: Text(
                                 title,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Color.fromARGB(255, 255, 255, 255)),
                               ),
                             );
@@ -138,7 +136,7 @@ class _AddJobState extends State<AddJob> {
                       width: double.infinity,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(142, 77, 69, 158),
+                        color: const Color.fromARGB(142, 77, 69, 158),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                             color: const Color.fromARGB(255, 71, 70, 70)),
@@ -164,7 +162,7 @@ class _AddJobState extends State<AddJob> {
                               value: district,
                               child: Text(
                                 district,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Color.fromARGB(255, 255, 255, 255)),
                               ),
                             );
@@ -176,7 +174,7 @@ class _AddJobState extends State<AddJob> {
                       width: double.infinity,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(142, 77, 69, 158),
+                        color: const Color.fromARGB(142, 77, 69, 158),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                             color: const Color.fromARGB(255, 71, 70, 70)),
@@ -202,15 +200,15 @@ class _AddJobState extends State<AddJob> {
                                   value: panchayath,
                                   child: Text(
                                     panchayath,
-                                    style: TextStyle(
-                                        color: const Color.fromARGB(
-                                            255, 252, 252, 252)),
+                                    style: const TextStyle(
+                                        color:
+                                            Color.fromARGB(255, 252, 252, 252)),
                                   ),
                                 );
                               }).toList()
                             : [],
                       ))),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   TextField(
@@ -273,6 +271,7 @@ class _AddJobState extends State<AddJob> {
                                             onTap: () {
                                               access.pickImage(
                                                   ImageSource.gallery);
+
                                               Navigator.pop(context);
                                             },
                                             child: const ListTile(
@@ -284,7 +283,7 @@ class _AddJobState extends State<AddJob> {
                           },
                         );
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.camera_alt_outlined,
                         color: Colors.white,
                       )),
@@ -293,15 +292,16 @@ class _AddJobState extends State<AddJob> {
                     onPressed: () {
                       DateTime now = DateTime.now();
                       posteddate =
-                          '${now.year}-${(now.month)}-${(now.day)} ${(now.hour)}:${(now.minute)}';
+                          '${(now.day)}-${(now.month)}-${now.year}\t${(now.hour)}:${(now.minute)}';
                       print(posteddate);
-                      addJobData();
-                      addJobToList();
+                      profimg = access.imageUrl;
+                      print('sdfjsdflkjsdf ${profimg}');
 
+                      addJobData();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                              builder: (context) => const HomeScreen()));
                     },
                     child: const Text('Add Job'),
                   ),
@@ -312,52 +312,5 @@ class _AddJobState extends State<AddJob> {
         ),
       ),
     );
-  }
-
-  void addJobToList() {
-    String description = descriptionController.text;
-    String location = locationController.text;
-    double salary = double.parse(salaryController.text);
-    String phone = phoneController.text;
-
-    if (selectTitle == 'Cleaning') {
-      setState(() {
-        joblogo = 'assets/images/cleaning.png';
-      });
-    }
-
-    if (selectTitle == 'Sales Man') {
-      setState(() {
-        joblogo = 'assets/images/salesman.png';
-      });
-    }
-
-    if (selectTitle == 'Catering') {
-      setState(() {
-        joblogo = 'assets/images/catering.jpg';
-      });
-    }
-
-    Map<String, dynamic> jobDetails = {
-      'title': selectTitle,
-      'location': location,
-      'salary': salary.toString(),
-      'district': selectDistrict,
-      'panchayat': selectPanchayath,
-      'joblogo': joblogo,
-      'description': description,
-      'posteddate': posteddate,
-      'phoneNumber': phone
-    };
-
-    setState(() {
-      jobLists.add(jobDetails);
-    });
-
-    // Clear input fields
-    titleController.clear();
-    descriptionController.clear();
-    locationController.clear();
-    salaryController.clear();
   }
 }

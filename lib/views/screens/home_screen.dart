@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:findmyjob/views/screens/job_det.dart';
-import 'package:findmyjob/views/screens/job_details.dart';
 import 'package:findmyjob/views/screens/job_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,31 +8,6 @@ import 'package:findmyjob/views/widgets/job_item_card.dart';
 
 class HomeScreen extends StatelessWidget {
   static const route = '/';
-
-  // {
-  //   'jobs': 'Google',
-  //   'title': ' ',
-  //   'logoUrl':
-  //       'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png',
-  // },
-  // {
-  //   'jobs': 'Apple',
-  //   'title': 'Backend Developer',
-  //   'logoUrl':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Apple_logo_grey.svg/1724px-Apple_logo_grey.svg.png',
-  // },
-  // {
-  //   'jobs': 'Microsoft',
-  //   'title': 'Product Manager',
-  //   'logoUrl':
-  //       'https://png.pngtree.com/element_our/20200610/ourmid/pngtree-professional-cleaners-image_2245036.jpg',
-  // },
-  // {
-  //   'jobs': 'Microsoft',
-  //   'title': 'Product Manager',
-  //   'logoUrl':
-  //       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/480px-Microsoft_logo.svg.png',
-  // }
 
   const HomeScreen({
     super.key,
@@ -118,10 +92,10 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Jobs for you',
                 style: TextStyle(
                   color: Colors.white,
@@ -131,14 +105,14 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          Expanded(
-            child: StreamBuilder(
-              stream: FirebaseFirestore.instance
-                  .collection('jobdetails')
-                  .snapshots(),
-              builder: (BuildContext context,
-                  AsyncSnapshot<QuerySnapshot> snapshot) {
-                return GridView.builder(
+          StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection('jobdetails')
+                .snapshots(),
+            builder: (BuildContext context,
+                AsyncSnapshot<QuerySnapshot> snapshot) {
+              return Expanded(
+                child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),
@@ -147,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                       final DocumentSnapshot documentSnapshot =
                             snapshot.data!.docs[index];
                       if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                        return Center(
+                        return const Center(
                           child: CircularProgressIndicator(),
                         );
                       } else {
@@ -164,15 +138,16 @@ class HomeScreen extends StatelessWidget {
                             selectPanchayath:  documentSnapshot['panchayat'],
                             posteddate:  documentSnapshot['postdate'],
                             phoneNumber:  documentSnapshot['phonenumber'],
+                            profimg: documentSnapshot['profimg'],
                           )
-
+              
                         );
-
+              
                         // Get.toNamed(JobDetailsScreen.route, arguments: jobLists[index]['title']);
                       }
-                    });
-              },
-            ),
+                    }),
+              );
+            },
           ),
         ]),
       ),
