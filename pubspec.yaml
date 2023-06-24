@@ -43,7 +43,7 @@ dependencies:
   firebase_core: ^2.13.1
   firebase_auth: ^4.6.2
   shared_preferences: ^2.1.1
-  cloud_firestore: ^4.7.1
+  cloud_firestore: ^4.8.1
   permission_handler: ^10.3.0
   image_picker: ^0.8.8
   provider: ^6.0.5
