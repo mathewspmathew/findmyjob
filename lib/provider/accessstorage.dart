@@ -33,7 +33,7 @@ class AccessStorage extends ChangeNotifier {
   void pickImage(ImageSource source) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
     if (pickedFile != null) {
-      _image = File(pickedFile.path);
+
       // ignore: unnecessary_null_comparison
       if (pickedFile == null) return;
       //Import dart:core
@@ -57,13 +57,13 @@ class AccessStorage extends ChangeNotifier {
         
         //Success: get the download URL
         _imageUrl = await referenceImageToUpload.getDownloadURL();
-        notifyListeners();
+    
          print('The is the path ${_imageUrl}');
       } catch (error) {
         //Some error occurred
       }
     }
    
-    notifyListeners();
+
   }
 }
