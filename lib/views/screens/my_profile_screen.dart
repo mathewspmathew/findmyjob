@@ -1,16 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:findmyjob/views/screens/map_search.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'base_nav_screen.dart';
 
-
 class MyProfileScreen extends StatelessWidget {
-    static const route = '/my-profile';
+  static const route = '/my-profile';
 
   MyProfileScreen({Key? key}) : super(key: key);
 
-  
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final _formKey = GlobalKey<FormState>();
   final firstname = TextEditingController();
@@ -27,7 +26,6 @@ class MyProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-    
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -338,13 +336,14 @@ class MyProfileScreen extends StatelessWidget {
                                   Color.fromARGB(204, 62, 128, 142)
                                       .withOpacity(1))),
                           onPressed: () {
-                            print('this is current user id''${userId}');
+                            print('this is current user id' '${userId}');
                             // Validate returns true if the form is valid, or false otherwise.
                             if (_formKey.currentState!.validate()) {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => BaseNavScreen()));
+                                      builder: (context) =>
+                                          DependentDropdownExample()));
                               CollectionReference users =
                                   firestore.collection('users');
                               var data = {

@@ -1,4 +1,4 @@
-
+import "package:findmyjob/views/screens/base_nav_screen.dart";
 import "package:findmyjob/views/screens/my_profile_screen.dart";
 import "package:flutter/material.dart";
 
@@ -168,8 +168,104 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        MyProfileScreen())); //enter the name of the next page
+                                        BaseNavScreen())); //enter the name of the next page
                           },
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          height: 40,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              minimumSize:
+                                  MaterialStateProperty.all(Size(100, 50)),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                              backgroundColor: MaterialStateProperty.all(
+                                Color.fromARGB(204, 62, 128, 142)
+                                    .withOpacity(1),
+                              ),
+                            ),
+                            child: const Text(
+                              "Add Place",
+                              style: TextStyle(fontSize: 20.0),
+                            ),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  TextEditingController districtController =
+                                      TextEditingController();
+                                  TextEditingController panchayathController =
+                                      TextEditingController();
+
+                                  return AlertDialog(
+                                    title: const Text('Add Place'),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextField(
+                                          style: TextStyle(color: Colors.black),
+                                          controller: districtController,
+                                          decoration: InputDecoration(
+                                            hintText: 'Enter District',
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        TextField(
+                                          controller: panchayathController,
+                                          decoration: InputDecoration(
+                                            hintText: 'Enter Panchayath',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    actions: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          String newDistrict =
+                                              districtController.text;
+                                          String newPanchayath =
+                                              panchayathController.text;
+
+                                          if (newDistrict.isNotEmpty &&
+                                              newPanchayath.isNotEmpty) {
+                                            if (!districtList
+                                                .contains(newDistrict)) {
+                                              setState(() {
+                                                districtList.add(newDistrict);
+                                              });
+                                            }
+
+                                            if (panchayathMap[newDistrict] ==
+                                                null) {
+                                              panchayathMap[newDistrict] = [
+                                                newPanchayath
+                                              ];
+                                            } else {
+                                              if (!panchayathMap[newDistrict]!
+                                                  .contains(newPanchayath)) {
+                                                setState(() {
+                                                  panchayathMap[newDistrict]!
+                                                      .add(newPanchayath);
+                                                });
+                                              }
+                                            }
+                                          }
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: const Text('Submit'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                          ),
                         ),
                         Transform.translate(
                           offset: const Offset(0.0, 250.0),

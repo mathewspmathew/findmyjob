@@ -1,4 +1,5 @@
 import 'package:findmyjob/views/screens/map_search.dart';
+import 'package:findmyjob/views/screens/my_profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
@@ -108,7 +109,7 @@ class SignUpScreen extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            DependentDropdownExample()));
+                                            MyProfileScreen()));
                               },
 
                               // },

@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:findmyjob/views/screens/home_profile.dart';
+import 'package:findmyjob/views/screens/login_screen.dart';
 import 'package:findmyjob/views/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,8 +17,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     _timer = Timer(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) =>  SignUpScreen()));
+      Navigator.pushReplacement(
+          context,
+          //MaterialPageRoute(builder: (context) =>  LoginScreen()));
+          MaterialPageRoute(builder: (context) => HomeProfile()));
     });
     super.initState();
   }
