@@ -20,15 +20,15 @@ class AccessStorage extends ChangeNotifier {
     notifyListeners();
   }
 
-  void chooseFromStorage(ImageSource source) async {
-    final pickedFile = await ImagePicker().pickImage(source: source);
-    if (pickedFile != null) {
-    
+  // void chooseFromStorage(ImageSource source) async {
+  //   final pickedFile = await ImagePicker().pickImage(source: source);
+  //   if (pickedFile != null) {
+   
 
-    }
-    notifyListeners();
+  //   }
+  //   notifyListeners();
 
-  }
+  // }
 
   void pickImage(ImageSource source) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
@@ -54,9 +54,10 @@ class AccessStorage extends ChangeNotifier {
       try {
         //Store the file
         await referenceImageToUpload.putFile(_image!);
-
+        
         //Success: get the download URL
         _imageUrl = await referenceImageToUpload.getDownloadURL();
+        notifyListeners();
          print('The is the path ${_imageUrl}');
       } catch (error) {
         //Some error occurred

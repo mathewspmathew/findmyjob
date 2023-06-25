@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:findmyjob/provider/accessstorage.dart';
 import 'package:findmyjob/views/screens/home_screen.dart';
@@ -32,9 +34,8 @@ class _AddJobState extends State<AddJob> {
   String? selectTitle;
   String? posteddate;
   String? joblogo;
-  String? profimg;
 
-  void addJobData() {
+  void addJobData(String profimg) {
     if (selectTitle == 'Cleaning') {
       setState(() {
         joblogo = 'assets/images/cleaning.png';
@@ -293,13 +294,9 @@ class _AddJobState extends State<AddJob> {
                       DateTime now = DateTime.now();
                       posteddate =
                           '${(now.day)}-${(now.month)}-${now.year}\t${(now.hour)}:${(now.minute)}';
-                      print(posteddate);
 
-                      setState(() {
-                        profimg = access.imageUrl;
-                      });
+                      addJobData(access.imageUrl.toString());
 
-                      addJobData();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
