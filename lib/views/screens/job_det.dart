@@ -294,8 +294,10 @@ class _AddJobState extends State<AddJob> {
                       posteddate =
                           '${(now.day)}-${(now.month)}-${now.year}\t${(now.hour)}:${(now.minute)}';
                       print(posteddate);
-                      profimg = access.imageUrl;
-                      print('sdfjsdflkjsdf ${profimg}');
+
+                      setState(() {
+                        profimg = access.imageUrl;
+                      });
 
                       addJobData();
                       Navigator.push(
