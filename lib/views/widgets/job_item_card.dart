@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:findmyjob/views/screens/job_details_screen.dart';
 import 'findmyjob_button.dart';
 
 class JobItemCard extends StatelessWidget {

@@ -1,6 +1,4 @@
 import 'package:findmyjob/provider/accessstorage.dart';
-import 'package:findmyjob/views/screens/base_nav_screen.dart';
-import 'package:findmyjob/views/screens/job_details_screen.dart';
 import 'package:findmyjob/views/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,13 +1,10 @@
-import 'dart:io';
-
-import 'package:findmyjob/provider/accessstorage.dart';
 import 'package:flutter/material.dart';
 import 'package:findmyjob/views/widgets/findmyjob_button.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class JobDetailsScreen extends StatefulWidget {
   static const route = '/job-details';
+
   final String? jobTitle;
   final String? description;
   final String? salary;
@@ -15,6 +12,7 @@ class JobDetailsScreen extends StatefulWidget {
   final String? selectDistrict;
   final String? posteddate;
   final String? phoneNumber;
+  final String? profimg;
 
   const JobDetailsScreen(
       {super.key,
@@ -24,13 +22,16 @@ class JobDetailsScreen extends StatefulWidget {
       this.selectPanchayath,
       this.phoneNumber,
       this.selectDistrict,
-      this.posteddate});
+      this.posteddate,
+      this.profimg,
+      });
 
   @override
   State<JobDetailsScreen> createState() => _JobDetailsScreenState();
 }
 
 class _JobDetailsScreenState extends State<JobDetailsScreen> {
+ 
   @override
   Widget build(BuildContext context) {
     Future<void> launchPhoneDialer(String phoneNumber) async {
@@ -48,7 +49,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,19 +58,15 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Consumer<AccessStorage>(
-                    builder: (context, access, child) => CircleAvatar(
-                        radius: 110,
-                        backgroundImage: FileImage(
-                          access.imageUrl as File,
-                        )),
-                  ),
-                  SizedBox(
+                CircleAvatar(
+                          radius: 110,
+                          backgroundImage: NetworkImage(widget.profimg.toString())),
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
                     widget.jobTitle.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
@@ -77,50 +74,50 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                   ),
                   Text(
                     widget.selectPanchayath.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 18,
                     ),
                   ),
                   Text(
                     widget.selectDistrict.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 18,
                     ),
                   ),
                   Text(
                     'Posted on ${widget.posteddate}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.grey,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           color: Colors.white.withOpacity(0.1),
                         ),
-                        child: Text('Full-Time'),
+                        child: const Text('Full-Time'),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 16,
                       ),
                       Text(widget.salary.toString())
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
-                  Text(
+                  const Text(
                     'Job Description',
                     style: TextStyle(
                       color: Colors.white,
@@ -137,13 +134,13 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                         ),
                       ),
                       dense: true,
-                      contentPadding: EdgeInsets.all(0),
+                      contentPadding: const EdgeInsets.all(0),
                       minLeadingWidth: 0,
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Center(

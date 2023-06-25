@@ -1,23 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:findmyjob/views/screens/home_screen.dart';
-import 'package:findmyjob/views/screens/map_search.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get.dart';
-import 'package:findmyjob/views/widgets/jtext_form_field.dart';
 
 import 'base_nav_screen.dart';
 
+
 class MyProfileScreen extends StatelessWidget {
-  static const route = '/my-profile';
+    static const route = '/my-profile';
 
   MyProfileScreen({Key? key}) : super(key: key);
+
+  
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-
   final _formKey = GlobalKey<FormState>();
-
   final firstname = TextEditingController();
   final secondname = TextEditingController();
   final phone = TextEditingController();
