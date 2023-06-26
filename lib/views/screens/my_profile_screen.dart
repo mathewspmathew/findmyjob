@@ -247,6 +247,7 @@ class MyProfileScreen extends StatelessWidget {
                               if (value == null || value.isEmpty) {
                                 return 'Please Enter Your DOB ';
                               }
+                              
                               return null;
                             },
                             controller: dob,
