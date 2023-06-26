@@ -64,8 +64,9 @@ class _AddJobState extends State<AddJob> {
       'phonenumber': phoneController.text,
       'postdate': posteddate.toString(),
       'joblogo': joblogo,
-      'profimg': profimg
+      'profimg': profimg,
     });
+ //   firestore.collection('users').({});
   }
 
   @override

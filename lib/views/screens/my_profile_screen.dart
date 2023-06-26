@@ -353,7 +353,10 @@ class MyProfileScreen extends StatelessWidget {
                                     secondname.text, // Stokes and Sons
                                 'dob': dob.text,
                                 'gender': gender.text,
-                                'address': address.text // 42
+                                'address': address.text,// 42
+                               // 'appliedjobs': [], // Initialize as an empty list
+                             // 'postedjobs': [],
+                                
                               };
                               print(data);
                               users

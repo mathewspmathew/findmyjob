@@ -106,49 +106,46 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           StreamBuilder(
-            stream: FirebaseFirestore.instance
-                .collection('jobdetails')
-                .snapshots(),
-            builder: (BuildContext context,
-                AsyncSnapshot<QuerySnapshot> snapshot) {
-              return Expanded(
-                child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (context, index) {
-                      final DocumentSnapshot documentSnapshot =
-                            snapshot.data!.docs[index];
-                      if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      } else {
-                        
-                        return JobItemCard(
-                          jobs: documentSnapshot['category'],
-                          jobTitle: documentSnapshot['location'],
-                          jobsLogoUrl: documentSnapshot['joblogo'],
-                           widget:JobDetailsScreen(
-                            jobTitle:  documentSnapshot['category'],
-                            description:  documentSnapshot['description'],
-                            salary:  documentSnapshot['salary'],
-                            selectDistrict:  documentSnapshot['district'],
-                            selectPanchayath:  documentSnapshot['panchayat'],
-                            posteddate:  documentSnapshot['postdate'],
-                            phoneNumber:  documentSnapshot['phonenumber'],
-                            profimg: documentSnapshot['profimg'],
-                          )
-              
-                        );
-              
-                        // Get.toNamed(JobDetailsScreen.route, arguments: jobLists[index]['title']);
-                      }
-                    }),
-              );
-            },
-          ),
+              stream: FirebaseFirestore.instance
+                  .collection('jobdetails')
+                  .snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  return Expanded(
+                      child: GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2),
+                          itemCount: snapshot.data!.docs.length as int,
+                          itemBuilder: (context, index) {
+                            final DocumentSnapshot documentSnapshot =
+                                snapshot.data!.docs[index];
+
+                            return JobItemCard(
+                                jobs: documentSnapshot['category'],
+                                jobTitle: documentSnapshot['location'],
+                                jobsLogoUrl: documentSnapshot['joblogo'],
+                                widget: JobDetailsScreen(
+                                  jobTitle: documentSnapshot['category'],
+                                  description: documentSnapshot['description'],
+                                  salary: documentSnapshot['salary'],
+                                  selectDistrict: documentSnapshot['district'],
+                                  selectPanchayath:
+                                      documentSnapshot['panchayat'],
+                                  posteddate: documentSnapshot['postdate'],
+                                  phoneNumber: documentSnapshot['phonenumber'],
+                                  profimg: documentSnapshot['profimg'],
+                                ));
+
+                            // Get.toNamed(JobDetailsScreen.route, arguments: jobLists[index]['title']);
+                          }));
+                }
+              }),
         ]),
       ),
     );
