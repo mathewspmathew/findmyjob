@@ -1,3 +1,4 @@
+import 'package:findmyjob/views/screens/login_screen.dart';
 import 'package:findmyjob/views/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,14 +9,13 @@ class HomeProfile extends StatelessWidget {
   HomeProfile({Key? key}) : super(key: key);
 
   Future<void> _logout() async {
-  try {
-    await FirebaseAuth.instance.signOut();
-    Get.offAllNamed(SignUpScreen.route); // Navigate to SignUpScreen
-  } catch (e) {
-    print('Error during logout: $e');
+    try {
+      await FirebaseAuth.instance.signOut();
+      Get.offAllNamed(LoginScreen.route); // Navigate to SignUpScreen
+    } catch (e) {
+      print('Error during logout: $e');
+    }
   }
-}
-
 
   Future<void> fetchUserData() async {
     try {
