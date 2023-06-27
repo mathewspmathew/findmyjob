@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'findmyjob_button.dart';
+import 'viewbutton.dart';
 
 class JobItemCard extends StatelessWidget {
   final String? jobs;
@@ -12,7 +12,6 @@ class JobItemCard extends StatelessWidget {
     required this.widget,
     this.jobTitle,
     this.jobsLogoUrl,
- 
   }) : super(key: key);
 
   @override
@@ -49,8 +48,8 @@ class JobItemCard extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-          findmyjobButton(
-              title: 'Apply',
+          ViewButton(
+              title: 'View',
               onPressed: () => Navigator.push(
                   context, MaterialPageRoute(builder: (context) => widget))),
         ],
