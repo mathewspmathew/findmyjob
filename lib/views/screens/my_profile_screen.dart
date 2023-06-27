@@ -142,7 +142,7 @@ class MyProfileScreen extends StatelessWidget {
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please Enter Your Last Name ';
+                                return 'Please Enter Your Last Name';
                               }
                               return null;
                             },
@@ -245,9 +245,8 @@ class MyProfileScreen extends StatelessWidget {
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please Enter Your DOB ';
+                                return 'Please Enter Your DOB';
                               }
-                              
                               return null;
                             },
                             controller: dob,
@@ -328,39 +327,44 @@ class MyProfileScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                           style: ButtonStyle(
-                              minimumSize:
-                                  MaterialStatePropertyAll(Size(100, 50)),
-                              shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                              backgroundColor: MaterialStatePropertyAll(
-                                  Color.fromARGB(204, 62, 128, 142)
-                                      .withOpacity(1))),
+                            minimumSize:
+                                MaterialStatePropertyAll(Size(100, 50)),
+                            shape: MaterialStatePropertyAll(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            backgroundColor: MaterialStatePropertyAll(
+                              Color.fromARGB(204, 62, 128, 142).withOpacity(1),
+                            ),
+                          ),
                           onPressed: () {
-                            print('this is current user id' '${userId}');
+                            print('this is current user id: $userId');
                             // Validate returns true if the form is valid, or false otherwise.
                             if (_formKey.currentState!.validate()) {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DependentDropdownExample()));
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DependentDropdownExample()),
+                              );
+
                               CollectionReference users =
                                   firestore.collection('users');
                               var data = {
-                                'first_name': firstname.text, // John Doe
-                                'second_name':
-                                    secondname.text, // Stokes and Sons
+                                'first_name': firstname.text,
+                                'second_name': secondname.text,
                                 'dob': dob.text,
                                 'gender': gender.text,
-                                'address': address.text,// 42
-                               // 'appliedjobs': [], // Initialize as an empty list
-                             // 'postedjobs': [],
-                                
+                                'address': address.text,
                               };
+
                               print(data);
+
                               users
-                                  .add(data)
+                                  .doc(
+                                      userId) // Use the user's UID as the document ID
+                                  .set(data)
                                   .then((value) => print("User Added"))
                                   .catchError((error) =>
                                       print("Failed to add user: $error"));

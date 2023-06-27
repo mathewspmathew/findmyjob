@@ -1,122 +1,160 @@
-import 'package:findmyjob/views/screens/viewprofile.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeProfile extends StatelessWidget {
-  const HomeProfile({Key? key}) : super(key: key);
+  HomeProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final profileImageTag = 'profileImage';
-
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return Material(
-            type: MaterialType.transparency,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: AlertDialog(
-                title: Text('Profile'),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Hero(
-                      tag: profileImageTag,
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (BuildContext context) {
-                                return Scaffold(
-                                  appBar: AppBar(
-                                    title: Text('Profile Picture'),
-                                    backgroundColor: Colors.grey,
-                                  ),
-                                  body: Center(
-                                    child: Hero(
-                                      tag: profileImageTag,
-                                      child: CircleAvatar(
-                                        radius: 150.0,
-                                        backgroundImage: AssetImage(
-                                            'assets/profile_image.png'),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          );
-                        },
-                        child: CircleAvatar(
-                          radius: 50.0,
-                          backgroundImage:
-                              AssetImage('assets/profile_image.png'),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 16.0),
-                    OutlinedButton(
-                      child: Text('View Profile'),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) {
-                              return ProfilePage();
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(height: 8.0),
-                    OutlinedButton(
-                      child: Text('Log Out'),
-                      onPressed: () {
-                        // Perform action when "Log Out" button is pressed
-                        // For example, log out the user and navigate to the login screen
-                      },
-                      style: OutlinedButton.styleFrom(
-                        side: BorderSide(
-                          color: Colors.grey,
-                          width: 1.0,
-                        ),
-                      ),
-                    ),
-                  ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile'),
+        elevation: 0,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
+            children: [
+              const CircleAvatar(
+                radius: 80,
+                backgroundImage: AssetImage('assets/profile.png'),
+              ),
+              Text(
+                'last name',
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
-            ),
-          );
-        },
-      );
-    });
-
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60.0),
-        child: AppBar(
-          backgroundColor: Colors.grey,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(30.0),
-            ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'first name',
+                style: const TextStyle(
+                  fontSize: 15.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                width: 200,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => const ());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    backgroundColor: Colors.green,
+                  ),
+                  child: const Text('Edit Profile'),
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Divider(),
+              const SizedBox(height: 10),
+              ListTile(
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Colors.green.withOpacity(0.3),
+                  ),
+                  child: const Icon(
+                    Icons.account_circle,
+                    color: Colors.green, // Set the icon color to green
+                  ),
+                ),
+                title: const Text(
+                  'Account',
+                  style: TextStyle(
+                    fontSize: 19.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              ListTile(
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Colors.green.withOpacity(0.3),
+                  ),
+                  child: const Icon(
+                    Icons.favorite_outline_outlined,
+                    color: Colors.green,
+                    // Set the icon color to green
+                  ),
+                ),
+                title: const Text(
+                  'Favorites',
+                  style: TextStyle(
+                    fontSize: 19.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              ListTile(
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Colors.green.withOpacity(0.3),
+                  ),
+                  child: const Icon(
+                    Icons.settings,
+                    color: Colors.green, // Set the icon color to green
+                  ),
+                ),
+                title: const Text('Settings',
+                  style: TextStyle(
+                    fontSize: 19.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              ListTile(
+                onTap: () {
+                  // AuthController.instance.logOut();
+                },
+                leading: Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Colors.green.withOpacity(0.3),
+                  ),
+                  child: const Icon(
+                    Icons.logout,
+                    color: Colors.green, // Set the icon color to green
+                  ),
+                ),
+                title: const Text(
+                  'Logout',
+                  style: TextStyle(
+                    fontSize: 19.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
           ),
-          centerTitle: true,
-          title: Text('Profile'),
         ),
-      ),
-      body: Stack(
-        children: [
-          Container(
-            color: Colors.transparent,
-            constraints: BoxConstraints.expand(),
-          ),
-          Center(
-            child: Text('Home Profile Content'),
-          ),
-        ],
       ),
     );
   }

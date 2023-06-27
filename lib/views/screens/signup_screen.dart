@@ -9,6 +9,8 @@ import 'package:findmyjob/views/screens/login_screen.dart';
 import 'package:findmyjob/views/widgets/jtext_form_field_v2.dart';
 import 'package:findmyjob/views/widgets/social_button.dart';
 
+import '../../domain/authent.dart';
+
 class SignUpScreen extends StatelessWidget {
   static const route = '/signup';
   SignUpScreen({Key? key}) : super(key: key);
@@ -93,26 +95,26 @@ class SignUpScreen extends StatelessWidget {
                                 ),
                               ),
                               onPressed: () async {
-                                // if (emailcontroller.text.isEmpty) {
-                                //   return;
-                                // }
-                                // if (passwordcontroller.text !=
-                                //     repasswordcontroller.text) {
-                                //   return;
-                                // }
+                                if (emailcontroller.text.isEmpty) {
+                                  return;
+                                }
+                                if (passwordcontroller.text !=
+                                    repasswordcontroller.text) {
+                                  return;
+                                }
                                 // log('messagee');
-                                // final response = await signUpWithEmailAndPassword(
-                                //     email: emailcontroller.text,
-                                //     password: passwordcontroller.text);
-                                //   if(response){
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            MyProfileScreen()));
+                                final response =
+                                    await signUpWithEmailAndPassword(
+                                        email: emailcontroller.text,
+                                        password: passwordcontroller.text);
+                                if (response) {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              MyProfileScreen()));
+                                }
                               },
-
-                              // },
                               child: Text(
                                 'Register',
                                 style: TextStyle(fontWeight: FontWeight.bold),

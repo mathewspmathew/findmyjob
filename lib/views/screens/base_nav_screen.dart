@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:findmyjob/constants.dart';
 import 'package:findmyjob/views/screens/home_screen.dart';
 import 'package:findmyjob/views/screens/my_profile_screen.dart';
-import 'package:findmyjob/views/screens/saved_jobs_screen.dart';
+import 'package:findmyjob/views/screens/posted_jobs_screen.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'applied_jobs_screen.dart';
 import 'home_profile.dart';
@@ -52,7 +52,7 @@ class BaseNavScreen extends StatelessWidget {
     return [
       HomeScreen(),
       AppliedJobsScreen(),
-      SavedJobsScreen(),
+      PostedJobScreen(),
       HomeProfile()
     ];
   }

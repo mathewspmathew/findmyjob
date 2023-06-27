@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SavedJobsScreen extends StatelessWidget {
-  const SavedJobsScreen({Key? key}) : super(key: key);
+class PostedJobScreen extends StatelessWidget {
+  const PostedJobScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
