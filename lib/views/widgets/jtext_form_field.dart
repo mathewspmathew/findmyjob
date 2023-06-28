@@ -22,7 +22,7 @@ class JTextFormField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(8.0),
           ),
-          focusColor: kprimarycolor,
+          focusColor: kPrimaryColor,
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(8.0),
