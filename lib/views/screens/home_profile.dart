@@ -76,8 +76,8 @@ class HomeProfile extends StatelessWidget {
           child: Column(
             children: [
               const CircleAvatar(
-                radius: 80,
-                backgroundImage: AssetImage('assets/images/profile.png'),
+                radius: 50,
+                backgroundImage: AssetImage('assets/images/profile_image.png'),
               ),
               StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
                 stream: usersCollection.doc(user!.uid).snapshots(),
@@ -90,28 +90,28 @@ class HomeProfile extends StatelessWidget {
 
                     return Column(
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              '${firstName ?? ''}',
-                              style: const TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                              ),
-                            ),
-                            const SizedBox(width: 5),
-                            Text(
-                              '${lastName ?? ''}',
-                              style: const TextStyle(
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 255, 255, 255),
-                              ),
-                            ),
-                          ],
-                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: [
+                        //     Text(
+                        //       '${firstName ?? ''}',
+                        //       style: const TextStyle(
+                        //         fontSize: 20.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Color.fromARGB(255, 255, 255, 255),
+                        //       ),
+                        //     ),
+                        //     const SizedBox(width: 5),
+                        //     Text(
+                        //       '${lastName ?? ''}',
+                        //       style: const TextStyle(
+                        //         fontSize: 20.0,
+                        //         fontWeight: FontWeight.bold,
+                        //         color: Color.fromARGB(255, 255, 255, 255),
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         const SizedBox(height: 5),
                         Text(
                           email ?? '',
