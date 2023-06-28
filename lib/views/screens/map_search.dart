@@ -70,6 +70,8 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
             colors: [
               const Color.fromRGBO(114, 230, 255, 100).withOpacity(1),
               const Color.fromRGBO(6, 210, 255, 100).withOpacity(1),
+              // Color.fromARGB(156, 10, 2, 84).withOpacity(1),
+              // Color.fromARGB(156, 28, 25, 222).withOpacity(1),
             ],
           ),
         ),
@@ -185,13 +187,14 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                                 selectedPanchayath != null) {
                               print('District: $selectedDistrict');
                               print('Panchayath: $selectedPanchayath');
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BaseNavScreen(),
+                                ),
+                              );
                             }
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BaseNavScreen(),
-                              ),
-                            );
                           },
                         ),
                         SizedBox(
@@ -242,6 +245,8 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                                           ),
                                           const SizedBox(height: 10),
                                           TextField(
+                                            style:
+                                                TextStyle(color: Colors.black),
                                             controller: panchayathController,
                                             decoration: InputDecoration(
                                               hintText: 'Enter Panchayath',
