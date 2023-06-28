@@ -1,9 +1,10 @@
 import 'package:findmyjob/views/screens/login_screen.dart';
-import 'package:findmyjob/views/screens/signup_screen.dart';
+// import 'package:findmyjob/views/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'login_screen.dart';
 
 class HomeProfile extends StatelessWidget {
   HomeProfile({Key? key}) : super(key: key);
@@ -11,11 +12,19 @@ class HomeProfile extends StatelessWidget {
   Future<void> _logout() async {
     try {
       await FirebaseAuth.instance.signOut();
-      Get.offAllNamed(LoginScreen.route); // Navigate to SignUpScreen
+      Get.offAllNamed(LoginScreen.route); // Navigate to LoginScreen
     } catch (e) {
       print('Error during logout: $e');
     }
   }
+  // Future<void> _logout(BuildContext context) async {
+  //   await _auth.signOut();
+  //   Navigator.pushAndRemoveUntil(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => LoginScreen()),
+  //     (Route<dynamic> route) => false,
+  //   );
+  // }
 
   Future<void> fetchUserData() async {
     try {
@@ -111,7 +120,8 @@ class HomeProfile extends StatelessWidget {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    Get.to(() => const ());
+                    Get.to(() =>
+                        HomeProfile()); //when clicking on edit profile it still is on home profile screen
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
@@ -196,7 +206,7 @@ class HomeProfile extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ListTile(
-                onTap: _logout,
+                onTap: () => _logout(),
                 leading: Container(
                   width: 40,
                   height: 40,
