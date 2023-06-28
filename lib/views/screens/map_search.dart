@@ -75,235 +75,239 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
         ),
         child: Transform.translate(
           offset: Offset(0.0, -100.0),
-          child: Center(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 260,
-                ),
-                Container(
-                  height: 400,
-                  width: 300,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 250,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: const Color.fromARGB(255, 71, 70, 70),
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 260,
+                  ),
+                  Container(
+                    height: 400,
+                    width: 300,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 250,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: const Color.fromARGB(255, 71, 70, 70),
+                            ),
                           ),
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            hint: const Text('Select District',
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 0, 0, 0))),
-                            value: selectedDistrict,
-                            isExpanded: true,
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedDistrict = newValue;
-                                selectedPanchayath = null;
-                              });
-                            },
-                            items: districtList.map((String district) {
-                              return DropdownMenuItem<String>(
-                                value: district,
-                                child: Text(
-                                  district,
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              hint: const Text('Select District',
                                   style: TextStyle(
-                                      color: const Color.fromARGB(
-                                          255, 23, 22, 22)),
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      Container(
-                        width: 250,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: const Color.fromARGB(255, 71, 70, 70),
-                          ),
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<String>(
-                            hint: const Text('Select Panchayath',
-                                style: TextStyle(color: Colors.black)),
-                            value: selectedPanchayath,
-                            isExpanded: true,
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedPanchayath = newValue;
-                              });
-                            },
-                            items: selectedDistrict != null
-                                ? panchayathMap[selectedDistrict]!
-                                    .map((String panchayath) {
-                                    return DropdownMenuItem<String>(
-                                      value: panchayath,
-                                      child: Text(
-                                        panchayath,
-                                        style: TextStyle(color: Colors.black),
-                                      ),
-                                    );
-                                  }).toList()
-                                : [],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(Size(100, 50)),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                                      color: Color.fromARGB(255, 0, 0, 0))),
+                              value: selectedDistrict,
+                              isExpanded: true,
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  selectedDistrict = newValue;
+                                  selectedPanchayath = null;
+                                });
+                              },
+                              items: districtList.map((String district) {
+                                return DropdownMenuItem<String>(
+                                  value: district,
+                                  child: Text(
+                                    district,
+                                    style: TextStyle(
+                                        color: const Color.fromARGB(
+                                            255, 23, 22, 22)),
+                                  ),
+                                );
+                              }).toList(),
                             ),
                           ),
-                          backgroundColor: MaterialStateProperty.all(
-                            Color.fromARGB(204, 62, 128, 142).withOpacity(1),
+                        ),
+                        const SizedBox(height: 20),
+                        Container(
+                          width: 250,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              color: const Color.fromARGB(255, 71, 70, 70),
+                            ),
                           ),
-                        ),
-                        child: const Text(
-                          "Submit",
-                          style: TextStyle(fontSize: 20.0),
-                        ),
-                        onPressed: () {
-                          if (selectedDistrict != null &&
-                              selectedPanchayath != null) {
-                            print('District: $selectedDistrict');
-                            print('Panchayath: $selectedPanchayath');
-                          }
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => BaseNavScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      if (userId == 'SLfGdDVGyOPncfgzvRnM5n17mvI2')
-                        SizedBox(
-                          height: 40,
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              minimumSize:
-                                  MaterialStateProperty.all(Size(100, 50)),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              ),
-                              backgroundColor: MaterialStateProperty.all(
-                                Color.fromARGB(204, 62, 128, 142)
-                                    .withOpacity(1),
-                              ),
-                            ),
-                            child: const Text(
-                              "Add Place",
-                              style: TextStyle(fontSize: 20.0),
-                            ),
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  TextEditingController districtController =
-                                      TextEditingController();
-                                  TextEditingController panchayathController =
-                                      TextEditingController();
-
-                                  return AlertDialog(
-                                    title: const Text('Add Place'),
-                                    content: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        TextField(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              hint: const Text('Select Panchayath',
+                                  style: TextStyle(color: Colors.black)),
+                              value: selectedPanchayath,
+                              isExpanded: true,
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  selectedPanchayath = newValue;
+                                });
+                              },
+                              items: selectedDistrict != null
+                                  ? panchayathMap[selectedDistrict]!
+                                      .map((String panchayath) {
+                                      return DropdownMenuItem<String>(
+                                        value: panchayath,
+                                        child: Text(
+                                          panchayath,
                                           style: TextStyle(color: Colors.black),
-                                          controller: districtController,
-                                          decoration: InputDecoration(
-                                            hintText: 'Enter District',
-                                          ),
                                         ),
-                                        const SizedBox(height: 10),
-                                        TextField(
-                                          controller: panchayathController,
-                                          decoration: InputDecoration(
-                                            hintText: 'Enter Panchayath',
+                                      );
+                                    }).toList()
+                                  : [],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 30),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            minimumSize:
+                                MaterialStateProperty.all(Size(100, 50)),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            backgroundColor: MaterialStateProperty.all(
+                              Color.fromARGB(204, 62, 128, 142).withOpacity(1),
+                            ),
+                          ),
+                          child: const Text(
+                            "Submit",
+                            style: TextStyle(fontSize: 20.0),
+                          ),
+                          onPressed: () {
+                            if (selectedDistrict != null &&
+                                selectedPanchayath != null) {
+                              print('District: $selectedDistrict');
+                              print('Panchayath: $selectedPanchayath');
+                            }
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BaseNavScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        if (userId == 'SLfGdDVGyOPncfgzvRnM5n17mvI2')
+                          SizedBox(
+                            height: 40,
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                minimumSize:
+                                    MaterialStateProperty.all(Size(100, 50)),
+                                shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                backgroundColor: MaterialStateProperty.all(
+                                  Color.fromARGB(204, 62, 128, 142)
+                                      .withOpacity(1),
+                                ),
+                              ),
+                              child: const Text(
+                                "Add Place",
+                                style: TextStyle(fontSize: 20.0),
+                              ),
+                              onPressed: () {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    TextEditingController districtController =
+                                        TextEditingController();
+                                    TextEditingController panchayathController =
+                                        TextEditingController();
+
+                                    return AlertDialog(
+                                      title: const Text('Add Place'),
+                                      content: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          TextField(
+                                            style:
+                                                TextStyle(color: Colors.black),
+                                            controller: districtController,
+                                            decoration: InputDecoration(
+                                              hintText: 'Enter District',
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    actions: [
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          String newDistrict =
-                                              districtController.text;
-                                          String newPanchayath =
-                                              panchayathController.text;
+                                          const SizedBox(height: 10),
+                                          TextField(
+                                            controller: panchayathController,
+                                            decoration: InputDecoration(
+                                              hintText: 'Enter Panchayath',
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      actions: [
+                                        ElevatedButton(
+                                          onPressed: () {
+                                            String newDistrict =
+                                                districtController.text;
+                                            String newPanchayath =
+                                                panchayathController.text;
 
-                                          if (newDistrict.isNotEmpty &&
-                                              newPanchayath.isNotEmpty) {
-                                            if (!districtList
-                                                .contains(newDistrict)) {
-                                              setState(() {
-                                                districtList.add(newDistrict);
-                                              });
-                                            }
-
-                                            if (panchayathMap[newDistrict] ==
-                                                null) {
-                                              panchayathMap[newDistrict] = [
-                                                newPanchayath
-                                              ];
-                                            } else {
-                                              if (!panchayathMap[newDistrict]!
-                                                  .contains(newPanchayath)) {
+                                            if (newDistrict.isNotEmpty &&
+                                                newPanchayath.isNotEmpty) {
+                                              if (!districtList
+                                                  .contains(newDistrict)) {
                                                 setState(() {
-                                                  panchayathMap[newDistrict]!
-                                                      .add(newPanchayath);
+                                                  districtList.add(newDistrict);
                                                 });
                                               }
+
+                                              if (panchayathMap[newDistrict] ==
+                                                  null) {
+                                                panchayathMap[newDistrict] = [
+                                                  newPanchayath
+                                                ];
+                                              } else {
+                                                if (!panchayathMap[newDistrict]!
+                                                    .contains(newPanchayath)) {
+                                                  setState(() {
+                                                    panchayathMap[newDistrict]!
+                                                        .add(newPanchayath);
+                                                  });
+                                                }
+                                              }
                                             }
-                                          }
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: const Text('Submit'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: const Text('Submit'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                      Transform.translate(
-                        offset: const Offset(0.0, 250.0),
-                        child: SizedBox(
-                          height: 40,
-                          child: Image.asset(
-                            'assets/images/FindMyPage.png',
-                            height: 100,
-                            width: 200,
+                        Transform.translate(
+                          offset: const Offset(0.0, 250.0),
+                          child: SizedBox(
+                            height: 40,
+                            child: Image.asset(
+                              'assets/images/FindMyPage.png',
+                              height: 100,
+                              width: 200,
+                            ),
                           ),
-                        ),
-                      )
-                    ],
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

@@ -86,32 +86,44 @@ class HomeProfile extends StatelessWidget {
                     final data = snapshot.data!.data();
                     final lastName = data?['lastName'];
                     final firstName = data?['firstName'];
+                    final email = user.email;
 
                     return Column(
                       children: [
-                        Text(
-                          lastName ?? '',
-                          style: const TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              '${firstName ?? ''}',
+                              style: const TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
+                            ),
+                            const SizedBox(width: 5),
+                            Text(
+                              '${lastName ?? ''}',
+                              style: const TextStyle(
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                                color: Color.fromARGB(255, 255, 255, 255),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
+                        const SizedBox(height: 5),
                         Text(
-                          firstName ?? '',
+                          email ?? '',
                           style: const TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                            color: Color.fromARGB(255, 255, 255, 255),
                           ),
                         ),
                       ],
                     );
                   }
-
                   return const CircularProgressIndicator();
                 },
               ),

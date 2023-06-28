@@ -15,7 +15,8 @@ class JTextFormField2 extends StatelessWidget {
     required this.prefixIcon,
     this.suffixIcon,
     this.textInputType,
-    this.obscureText, required this.controller,
+    this.obscureText,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -33,16 +34,16 @@ class JTextFormField2 extends StatelessWidget {
           prefixIcon: Icon(prefixIcon),
           suffixIcon: Icon(suffixIcon),
           border: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimaryColor),
+            borderSide: BorderSide(color: kprimarycolor),
             borderRadius: BorderRadius.circular(8.0),
           ),
-          focusColor: kPrimaryColor,
+          focusColor: kprimarycolor,
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimaryColor),
+            borderSide: BorderSide(color: kprimarycolor),
             borderRadius: BorderRadius.circular(8.0),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimaryColor),
+            borderSide: BorderSide(color: kprimarycolor),
             borderRadius: BorderRadius.circular(8.0),
           ),
           labelText: labelText,

@@ -5,7 +5,8 @@ class JTextFormField extends StatelessWidget {
   final String labelText;
   const JTextFormField({
     Key? key,
-    required this.labelText, required String? Function(dynamic value) validator,
+    required this.labelText,
+    required String? Function(dynamic value) validator,
   }) : super(key: key);
 
   @override
@@ -21,7 +22,7 @@ class JTextFormField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(8.0),
           ),
-          focusColor: kPrimaryColor,
+          focusColor: kprimarycolor,
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(8.0),
