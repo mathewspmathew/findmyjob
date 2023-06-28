@@ -97,6 +97,8 @@ Widget build(BuildContext context) {
                       icon: Icon(Icons.delete),
                       color: Colors.white,
                       onPressed: () async {
+
+                        //onDismissed(DismissDirection.endToStart);
                         final isUserExists =
                             await checkUserInUsersCollection(userId!);
                         if (isUserExists) {
