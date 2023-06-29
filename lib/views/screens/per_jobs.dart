@@ -29,7 +29,7 @@ class PermanentJobsPage extends StatelessWidget {
               elevation: 0.0,
               centerTitle: true,
               title: const Text(
-                'Job Informations',
+                'Discover',
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -129,7 +129,7 @@ class PermanentJobsPage extends StatelessWidget {
                           },
                         );
                       },
-                      backgroundColor: Colors.blue[900],
+                      backgroundColor: Color.fromARGB(255, 13, 71, 161),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),

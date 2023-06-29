@@ -91,11 +91,11 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                   SizedBox(
                     height: 220,
                   ),
-                  Icon(
-                    Icons.search,
-                    size: 150,
-                    color: Color.fromARGB(255, 6, 2, 47),
-                  ),
+                  // Icon(
+                  //   Icons.search,
+                  //   size: 150,
+                  //   color: Color.fromARGB(255, 6, 2, 47),
+                  // ),
                   Container(
                     height: 400,
                     width: 300,
@@ -187,7 +187,7 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                               ),
                             ),
                             backgroundColor: MaterialStateProperty.all(
-                              Color.fromARGB(255, 6, 2, 47).withOpacity(1),
+                              Color.fromARGB(255, 13, 71, 161).withOpacity(1),
                             ),
                           ),
                           child: const Text(
@@ -210,7 +210,7 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                           },
                         ),
                         SizedBox(
-                          height: 15,
+                          height: 75,
                         ),
                         if (userId == 'SLfGdDVGyOPncfgzvRnM5n17mvI2')
                           SizedBox(
@@ -225,7 +225,8 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                                   ),
                                 ),
                                 backgroundColor: MaterialStateProperty.all(
-                                  Color.fromARGB(255, 6, 2, 47).withOpacity(1),
+                                  Color.fromARGB(255, 13, 71, 161)
+                                      .withOpacity(1),
                                 ),
                               ),
                               child: const Text(
