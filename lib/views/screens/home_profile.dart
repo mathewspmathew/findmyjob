@@ -1,10 +1,10 @@
+import 'package:findmyjob/views/screens/about.dart';
 import 'package:findmyjob/views/screens/login_screen.dart';
 // import 'package:findmyjob/views/screens/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'login_screen.dart';
 
 class HomeProfile extends StatelessWidget {
   static const route = '/Home-Profile';
@@ -243,6 +243,21 @@ class HomeProfile extends StatelessWidget {
                     ),
                   ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AboutPage()),
+                    );
+                  },
+                  child: Text(
+                    'About Us',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.blue,
+                    ),
+                  ),
+                )
               ],
             ),
           ),
