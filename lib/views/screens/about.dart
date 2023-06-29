@@ -15,7 +15,7 @@ class AboutPage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 80,
+              height: 120,
             ),
             Text(
               'here from the developer',
@@ -30,26 +30,26 @@ class AboutPage extends StatelessWidget {
             ),
             Image.asset(
               'assets/images/bugs.png',
-              height: 130,
+              height: 170,
             ),
             SizedBox(
-              height: 100,
+              height: 90,
             ),
-            Text(
-              'the team',
-              style: TextStyle(
-                fontSize: 16,
-                backgroundColor: Color.fromRGBO(10, 10, 10, 100),
-                color: Color(0xff516add),
-              ),
-            ),
+            // Text(
+            //   'the team',
+            //   style: TextStyle(
+            //     fontSize: 16,
+            //     backgroundColor: Color.fromRGBO(10, 10, 10, 100),
+            //     color: Color(0xff516add),
+            //   ),
+            // ),
             SizedBox(
               height: 18,
             ),
-            Image.asset(
-              'assets/images/grppic.png',
-              height: 90,
-            ),
+            // Image.asset(
+            //   'assets/images/grppic.png',
+            //   height: 90,
+            // ),
             TextButton(
               onPressed: () {
                 Navigator.push(
