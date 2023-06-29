@@ -1,3 +1,4 @@
+import 'package:findmyjob/views/screens/per_jobs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:findmyjob/constants.dart';
@@ -52,7 +53,7 @@ class BaseNavScreen extends StatelessWidget {
     return [
       HomeScreen(),
       AppliedJobsScreen(),
-      PostedJobScreen(),
+      PermanentJobsPage(),
       HomeProfile()
     ];
   }
@@ -73,7 +74,7 @@ class BaseNavScreen extends StatelessWidget {
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.square_favorites_alt),
-        title: ("Saved"),
+        title: ("Permanent Jobs"),
         activeColorPrimary: CupertinoColors.white,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
