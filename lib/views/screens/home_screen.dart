@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Find My Job'),
-         backgroundColor: kScaffoldBackgroundColor,
+        backgroundColor: kScaffoldBackgroundColor,
         elevation: 0.0,
         actions: [
           TextButton(
@@ -40,14 +40,30 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AddJob()),
-          );
-        },
-        child: const Icon(Icons.add),
+      floatingActionButton: SizedBox(
+        width: 130,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AddJob()),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            primary: Colors.blue[900], // Adjust the shade of blue as needed
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.add_circle_outline),
+              SizedBox(width: 8.0),
+              Text('Add Job'),
+            ],
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -135,8 +135,8 @@ class HomeProfile extends StatelessWidget {
                   width: 200,
                   child: ElevatedButton(
                     onPressed: () {
-                      Get.to(() =>
-                          HomeProfile()); //when clicking on edit profile it still is on home profile screen
+                      // Get.to(() =>
+                      //     HomeProfile()); //when clicking on edit profile it still is on home profile screen
                     },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
