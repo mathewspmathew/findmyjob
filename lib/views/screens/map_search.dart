@@ -187,7 +187,7 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                               ),
                             ),
                             backgroundColor: MaterialStateProperty.all(
-                              Color.fromARGB(255, 13, 71, 161).withOpacity(1),
+                              Color.fromARGB(179, 51, 92, 136).withOpacity(1),
                             ),
                           ),
                           child: const Text(
@@ -225,7 +225,7 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                                   ),
                                 ),
                                 backgroundColor: MaterialStateProperty.all(
-                                  Color.fromARGB(255, 13, 71, 161)
+                                  Color.fromARGB(179, 51, 92, 136)
                                       .withOpacity(1),
                                 ),
                               ),
