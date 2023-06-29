@@ -47,8 +47,6 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-         backgroundColor: kScaffoldBackgroundColor,
-        elevation: 0.0,
         iconTheme: IconThemeData(color: Color.fromARGB(255, 6, 2, 47)),
         title: Text(
           'Select Your Location',
@@ -66,8 +64,8 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
             bottomLeft: Radius.circular(25),
           ),
         ),
-        // elevation: 0.00,
-        // backgroundColor: const Color.fromARGB(255, 246, 246, 246),
+        elevation: 0.00,
+        backgroundColor: const Color.fromARGB(255, 246, 246, 246),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
