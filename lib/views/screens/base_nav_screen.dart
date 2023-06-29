@@ -74,7 +74,7 @@ class BaseNavScreen extends StatelessWidget {
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.square_favorites_alt),
-        title: ("Permanent Jobs"),
+        title: (" Jobs Info"),
         activeColorPrimary: CupertinoColors.white,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),

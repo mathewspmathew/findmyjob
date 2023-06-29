@@ -69,7 +69,7 @@ class PermanentJobsPage extends StatelessWidget {
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: Text(
-              '+ add job',
+              ' Add ',
               style: TextStyle(fontSize: 18),
             ),
           ),
