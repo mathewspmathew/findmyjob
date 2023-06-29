@@ -5,10 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
-import 'package:findmyjob/constants.dart';
 import 'package:findmyjob/views/screens/signup_screen.dart';
 import 'package:findmyjob/views/widgets/jtext_form_field_v2.dart';
-import 'package:findmyjob/views/widgets/social_button.dart';
 
 class LoginScreen extends StatelessWidget {
   static const route = '/login';
