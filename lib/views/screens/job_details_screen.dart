@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:findmyjob/views/widgets/findmyjob_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../constants.dart';
+import '../widgets/joblist.dart';
+import 'applied_jobs_screen.dart';
+
 class JobDetailsScreen extends StatefulWidget {
   static const route = '/job-details';
 
@@ -14,24 +18,30 @@ class JobDetailsScreen extends StatefulWidget {
   final String? phoneNumber;
   final String? profimg;
 
-  const JobDetailsScreen(
-      {super.key,
-      this.jobTitle,
-      this.description,
-      this.salary,
-      this.selectPanchayath,
-      this.phoneNumber,
-      this.selectDistrict,
-      this.posteddate,
-      this.profimg,
-      });
+  const JobDetailsScreen({
+    super.key,
+    this.jobTitle,
+    this.description,
+    this.salary,
+    this.selectPanchayath,
+    this.phoneNumber,
+    this.selectDistrict,
+    this.posteddate,
+    this.profimg,
+  });
 
   @override
   State<JobDetailsScreen> createState() => _JobDetailsScreenState();
+  void applyJob(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      AppliedJobsScreen.route,
+      arguments: jobTitle,
+    );
+  }
 }
 
 class _JobDetailsScreenState extends State<JobDetailsScreen> {
- 
   @override
   Widget build(BuildContext context) {
     Future<void> launchPhoneDialer(String phoneNumber) async {
@@ -58,9 +68,9 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                CircleAvatar(
-                          radius: 110,
-                          backgroundImage: NetworkImage(widget.profimg.toString())),
+                  CircleAvatar(
+                      radius: 110,
+                      backgroundImage: NetworkImage(widget.profimg.toString())),
                   const SizedBox(
                     height: 16,
                   ),
@@ -143,13 +153,39 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
               const SizedBox(
                 height: 16,
               ),
-              Center(
-                child: findmyjobButton(
-                  title: 'Apply',
-                  onPressed: () {
-                    launchPhoneDialer(widget.phoneNumber.toString());
-                  },
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: kButtonColor,
+                      padding:
+                          EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(16.0),
+                      ),
+                    ),
+                    child: Text('Apply'),
+                    onPressed: () {
+                      appliedjobs.add({
+                        'jobtitle': widget.jobTitle,
+                        'description': widget.description
+                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AppliedJobsScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  findmyjobButton(
+                    title: 'Contact',
+                    onPressed: () {
+                      launchPhoneDialer(widget.phoneNumber.toString());
+                    },
+                  ),
+                ],
               ),
             ],
           ),

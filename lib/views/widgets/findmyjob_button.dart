@@ -21,7 +21,7 @@ class findmyjobButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text('Apply'),
+      child: Text('contact'),
     );
   }
 }

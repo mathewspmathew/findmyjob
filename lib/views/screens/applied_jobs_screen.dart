@@ -1,8 +1,13 @@
+import 'package:findmyjob/views/widgets/joblist.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppliedJobsScreen extends StatelessWidget {
-  const AppliedJobsScreen({Key? key}) : super(key: key);
+  static const route = '/applied-jobs';
+
+
+  const AppliedJobsScreen({Key? key,})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,6 @@ class AppliedJobsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const 
             Text(
               'Applied jobs',
               style: TextStyle(
@@ -29,34 +33,30 @@ class AppliedJobsScreen extends StatelessWidget {
               height: 8,
             ),
             Expanded(
-                child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) => Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                color: Colors.white.withOpacity(0.15),
-                child: ListTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(24),
-                    // child: Image.network(
-                    //   'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/768px-Google_%22G%22_Logo.svg.png',
-                    //   width: 48,
-                    //   height: 48,
-                    // ),
-                    child: CircleAvatar(),
+              child: ListView.builder(
+                itemCount: appliedjobs.length,
+                itemBuilder: (context, index) {
+                  final Map<String, dynamic> item = appliedjobs[index];
+    final String title = item['jobtitle'];
+    final String description = item['description'];
+                  return Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.0),
                   ),
-                  title: Text(
-                    'Catering',
-                    style: Get.textTheme.bodyLarge?.copyWith(fontSize: 16),
+                  color: Colors.white.withOpacity(0.15),
+                  child: ListTile(
+                    title: Text(
+                      title.toString(),
+                      style: Get.textTheme.bodyText1?.copyWith(fontSize: 16),
+                    ),
+                    subtitle: Text(
+                      description.toString(),
+                      style: Get.textTheme.bodyText1?.copyWith(fontSize: 16),
+                    ),
                   ),
-                  subtitle: Text(
-                    'Sandhya caters',
-                    style: Get.textTheme.titleMedium?.copyWith(fontSize: 12),
-                  ),
-                ),
+                );},
               ),
-            ))
+            ),
           ],
         ),
       ),
