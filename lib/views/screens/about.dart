@@ -15,18 +15,25 @@ class AboutPage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 50,
+              height: 80,
             ),
             Text(
-              'here our story',
+              'here from the developer',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
                 fontStyle: FontStyle.italic,
               ),
             ),
             SizedBox(
               height: 18,
+            ),
+            Image.asset(
+              'assets/images/bugs.png',
+              height: 130,
+            ),
+            SizedBox(
+              height: 100,
             ),
             Text(
               'the team',

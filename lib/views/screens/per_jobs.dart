@@ -152,8 +152,13 @@ class PermanentJobsPage extends StatelessWidget {
                       DocumentSnapshot documentSnapshot =
                           snapshot.data.docs[index];
                       return Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              10.0), // Set the border radius here
+                        ),
                         child: Container(
-                          color: Colors.black26,
+                          color: Color.fromARGB(
+                              255, 7, 3, 54), // Update the color here
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
