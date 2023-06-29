@@ -89,6 +89,9 @@ class PermanentJobsPage extends StatelessWidget {
                                     children: [
                                       TextField(
                                         controller: titlecontroller,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
                                         decoration: InputDecoration(
                                           labelText: 'Title',
                                         ),
@@ -96,6 +99,9 @@ class PermanentJobsPage extends StatelessWidget {
                                       SizedBox(height: 16),
                                       TextField(
                                         controller: descrcontroller,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
                                         decoration: InputDecoration(
                                           labelText: 'Description',
                                         ),
