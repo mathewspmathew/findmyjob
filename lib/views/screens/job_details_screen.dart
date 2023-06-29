@@ -106,7 +106,7 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
                           borderRadius: BorderRadius.circular(8),
                           color: Colors.white.withOpacity(0.1),
                         ),
-                        child: const Text('Full-Time'),
+                        child: const Text('Part-Time'),
                       ),
                       const SizedBox(
                         width: 16,

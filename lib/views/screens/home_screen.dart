@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:findmyjob/views/screens/home_profile.dart';
 import 'package:findmyjob/views/screens/job_det.dart';
 import 'package:findmyjob/views/screens/job_details_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () {
-              Get.toNamed(MyProfileScreen.route);
+              //Get.toNamed(HomeProfile.route);
             },
             child: const CircleAvatar(
                 radius: 20,
