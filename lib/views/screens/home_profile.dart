@@ -257,7 +257,7 @@ class HomeProfile extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
