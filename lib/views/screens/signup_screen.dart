@@ -73,14 +73,14 @@ class SignUpScreen extends StatelessWidget {
                           JTextFormField2(
                             labelText: 'Password',
                             prefixIcon: CupertinoIcons.lock,
-                            suffixIcon: CupertinoIcons.eye,
+                            suffixIcon: CupertinoIcons.eye_slash,
                             obscureText: true,
                             controller: passwordcontroller,
                           ),
                           JTextFormField2(
                             labelText: 'Confirm Password',
                             prefixIcon: CupertinoIcons.lock,
-                            suffixIcon: CupertinoIcons.eye,
+                            suffixIcon: CupertinoIcons.eye_slash,
                             obscureText: true,
                             controller: repasswordcontroller,
                           ),

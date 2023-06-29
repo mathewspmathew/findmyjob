@@ -19,8 +19,6 @@ class LoginScreen extends StatelessWidget {
   final passwordcontroller = TextEditingController();
   final repasswordcontroller = TextEditingController();
 
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                           JTextFormField2(
                             labelText: 'Password',
                             prefixIcon: CupertinoIcons.lock,
-                            suffixIcon: CupertinoIcons.eye,
+                            suffixIcon: CupertinoIcons.eye_slash,
                             obscureText: true,
                             controller: passwordcontroller,
                           ),
