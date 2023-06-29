@@ -191,7 +191,7 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                             ),
                           ),
                           child: const Text(
-                            "Search",
+                            "Submit",
                             style: TextStyle(fontSize: 20.0),
                           ),
                           onPressed: () {
