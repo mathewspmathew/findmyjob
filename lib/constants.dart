@@ -6,3 +6,4 @@ final kTextColor = Colors.white;
 final kButtonColor = Color(0xff516add);
 final kCardBackgroundColor = Colors.white.withOpacity(0.15);
 final kScaffoldBackgroundColor = Color.fromARGB(255, 6, 2, 47);
+//this is the colour theme of our app
