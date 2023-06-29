@@ -37,7 +37,12 @@ class LoginScreen extends StatelessWidget {
                   child: Center(
                       child: Text(
                     'Welcome Back',
-                    style: Get.textTheme.headline4,
+                     style: Get.textTheme.headline4?.copyWith(
+                        fontSize: 44.0,
+                        color: Color.fromARGB(255, 84, 78, 78),
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                     ),
                   )),
                 ),
               ),
@@ -76,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                             height: 60,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: kButtonColor,
+                                backgroundColor: Color.fromARGB(255, 6, 2, 47),
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(8.0),
                                 ),
@@ -85,15 +90,13 @@ class LoginScreen extends StatelessWidget {
                                 final response = await loginUser(
                                     email: emailcontroller.text,
                                     password: passwordcontroller.text);
-                                    if(response){
-                                        Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            DependentDropdownExample()));
-                                    }
-
-                                
+                                if (response) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              DependentDropdownExample()));
+                                }
                               },
                               child: Text('Login'),
                             ),

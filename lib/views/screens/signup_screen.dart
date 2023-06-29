@@ -39,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
                       'Create Account',
                       style: Get.textTheme.headline4?.copyWith(
                         fontSize: 44.0,
-                        color: Color.fromARGB(255, 122, 111, 111),
+                        color: Color.fromARGB(255, 84, 78, 78),
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold,
                       ),
@@ -89,7 +89,7 @@ class SignUpScreen extends StatelessWidget {
                             height: 60,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: kButtonColor,
+                                backgroundColor: Color.fromARGB(255, 6, 2, 47),
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: new BorderRadius.circular(8.0),
                                 ),
