@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
+import '../../constants.dart';
+
 class AddJob extends StatefulWidget {
   const AddJob({super.key});
 
@@ -74,6 +76,8 @@ class _AddJobState extends State<AddJob> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Job'),
+         backgroundColor: kScaffoldBackgroundColor,
+        elevation: 0.0,
       ),
       body: SingleChildScrollView(
         child: SizedBox(

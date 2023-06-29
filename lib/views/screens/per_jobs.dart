@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
+
 class PermanentJobsPage extends StatelessWidget {
   final TextEditingController titlecontroller = TextEditingController();
   final TextEditingController descrcontroller = TextEditingController();
@@ -9,7 +11,15 @@ class PermanentJobsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Job Informations'),
+          backgroundColor: kScaffoldBackgroundColor,
+          elevation: 0.0,
+          centerTitle: true,
+          title: const Text(
+            'Job Informations',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
         ),
         floatingActionButton: Container(
           width: 100,
@@ -64,7 +74,7 @@ class PermanentJobsPage extends StatelessWidget {
                 },
               );
             },
-            backgroundColor: Color.fromARGB(255, 138, 7, 55),
+            backgroundColor: Colors.blue[900],
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),

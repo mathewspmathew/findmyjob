@@ -56,6 +56,8 @@ class _JobDetailsScreenState extends State<JobDetailsScreen> {
       appBar: AppBar(
         title: Text(widget.jobTitle.toString()),
         centerTitle: true,
+         backgroundColor: kScaffoldBackgroundColor,
+        elevation: 0.0,
       ),
       body: SingleChildScrollView(
         child: Container(

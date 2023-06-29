@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:findmyjob/views/screens/my_profile_screen.dart';
 import 'package:findmyjob/views/widgets/job_item_card.dart';
 
+import '../../constants.dart';
+
 class HomeScreen extends StatelessWidget {
   static const route = '/';
 
@@ -21,6 +23,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Find My Job'),
+        backgroundColor: kScaffoldBackgroundColor,
+        elevation: 0.0,
         actions: [
           TextButton(
             onPressed: () {
@@ -36,14 +40,30 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AddJob()),
-          );
-        },
-        child: const Icon(Icons.add),
+      floatingActionButton: SizedBox(
+        width: 130,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AddJob()),
+            );
+          },
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            primary: Colors.blue[900], // Adjust the shade of blue as needed
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Icon(Icons.add_circle_outline),
+              SizedBox(width: 8.0),
+              Text('Add Job'),
+            ],
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -2,6 +2,8 @@ import 'package:findmyjob/views/widgets/joblist.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../constants.dart';
+
 class AppliedJobsScreen extends StatelessWidget {
   static const route = '/applied-jobs';
 
@@ -15,6 +17,8 @@ class AppliedJobsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Applied Jobs'),
         centerTitle: true,
+         backgroundColor: kScaffoldBackgroundColor,
+        elevation: 0.0,
       ),
       body: Container(
         padding: EdgeInsets.all(16),

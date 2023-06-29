@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../constants.dart';
+
 class PostedJobScreen extends StatelessWidget {
   const PostedJobScreen({Key? key}) : super(key: key);
 
@@ -8,6 +10,8 @@ class PostedJobScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+         backgroundColor: kScaffoldBackgroundColor,
+        elevation: 0.0,
         title: Text('Saved Jobs'),
         centerTitle: true,
       ),
