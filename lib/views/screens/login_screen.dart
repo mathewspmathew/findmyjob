@@ -19,6 +19,8 @@ class LoginScreen extends StatelessWidget {
   final passwordcontroller = TextEditingController();
   final repasswordcontroller = TextEditingController();
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,13 +38,13 @@ class LoginScreen extends StatelessWidget {
                 child: SafeArea(
                   child: Center(
                       child: Text(
-                    'Welcome Back',
-                     style: Get.textTheme.headline4?.copyWith(
-                        fontSize: 44.0,
-                        color: Color.fromARGB(255, 84, 78, 78),
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                     ),
+                    'Hey 👋',
+                    style: Get.textTheme.headline4?.copyWith(
+                      fontSize: 44.0,
+                      color: Color.fromARGB(255, 84, 78, 78),
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                    ),
                   )),
                 ),
               ),
@@ -60,6 +62,9 @@ class LoginScreen extends StatelessWidget {
                     Form(
                       child: Column(
                         children: [
+                          SizedBox(
+                            height: 50,
+                          ),
                           JTextFormField2(
                             labelText: 'Email',
                             prefixIcon: CupertinoIcons.device_phone_portrait,
@@ -112,13 +117,13 @@ class LoginScreen extends StatelessWidget {
                                   color: Colors.grey,
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8),
-                                child: Text(
-                                  'Or login with',
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                              ),
+                              // Padding(
+                              //   padding: EdgeInsets.symmetric(horizontal: 8),
+                              //   child: Text(
+                              //     'Or login with',
+                              //     style: TextStyle(color: Colors.black),
+                              //   ),
+                              // ),
                               Expanded(
                                 child: Container(
                                   height: 1,
@@ -130,27 +135,27 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             height: 16,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SocialButton(
-                                imagePath: 'assets/images/facebook.png',
-                                onPressed: () {},
-                              ),
-                              SocialButton(
-                                imagePath: 'assets/images/google.png',
-                                onPressed: () {},
-                              ),
-                              SocialButton(
-                                imagePath: 'assets/images/linkedin.png',
-                                onPressed: () {},
-                              ),
-                              SocialButton(
-                                imagePath: 'assets/images/twitter.png',
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //   children: [
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/facebook.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/google.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/linkedin.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/twitter.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //   ],
+                          // ),
                           SizedBox(
                             height: 16,
                           ),

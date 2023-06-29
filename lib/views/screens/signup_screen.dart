@@ -36,9 +36,9 @@ class SignUpScreen extends StatelessWidget {
                 child: SafeArea(
                   child: Center(
                     child: Text(
-                      'Create Account',
+                      'Create Account😉',
                       style: Get.textTheme.headline4?.copyWith(
-                        fontSize: 44.0,
+                        fontSize: 38.0,
                         color: Color.fromARGB(255, 84, 78, 78),
                         fontFamily: 'Roboto',
                         fontWeight: FontWeight.bold,
@@ -48,6 +48,9 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          SizedBox(
+            height: 30,
           ),
           Expanded(
             flex: 3,
@@ -132,13 +135,13 @@ class SignUpScreen extends StatelessWidget {
                                   color: Colors.grey,
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 8),
-                                child: Text(
-                                  'Or sign up with',
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                              ),
+                              // Padding(
+                              //   padding: EdgeInsets.symmetric(horizontal: 8),
+                              //   child: Text(
+                              //     'Or sign up with',
+                              //     style: TextStyle(color: Colors.black),
+                              //   ),
+                              // ),
                               Expanded(
                                 child: Container(
                                   height: 1,
@@ -150,27 +153,27 @@ class SignUpScreen extends StatelessWidget {
                           SizedBox(
                             height: 16,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SocialButton(
-                                imagePath: 'assets/images/facebook.png',
-                                onPressed: () {},
-                              ),
-                              SocialButton(
-                                imagePath: 'assets/images/google.png',
-                                onPressed: () {},
-                              ),
-                              SocialButton(
-                                imagePath: 'assets/images/linkedin.png',
-                                onPressed: () {},
-                              ),
-                              SocialButton(
-                                imagePath: 'assets/images/twitter.png',
-                                onPressed: () {},
-                              ),
-                            ],
-                          ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          //   children: [
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/facebook.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/google.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/linkedin.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //     SocialButton(
+                          //       imagePath: 'assets/images/twitter.png',
+                          //       onPressed: () {},
+                          //     ),
+                          //   ],
+                          // ),
                           SizedBox(
                             height: 16,
                           ),

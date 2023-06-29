@@ -1,8 +1,11 @@
+import "package:findmyjob/constants.dart";
 import "package:findmyjob/views/screens/base_nav_screen.dart";
 import "package:findmyjob/views/screens/my_profile_screen.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import 'package:firebase_core/firebase_core.dart';
+import "package:get/get_core/src/get_main.dart";
+import "package:get/get_navigation/get_navigation.dart";
 
 class DependentDropdownExample extends StatefulWidget {
   const DependentDropdownExample({Key? key}) : super(key: key);
@@ -44,10 +47,14 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Color.fromARGB(255, 6, 2, 47)),
         title: Text(
           'Select Your Location',
-          style: TextStyle(
-            color: Color.fromARGB(173, 32, 32, 32),
+          style: Get.textTheme.headline4?.copyWith(
+            fontSize: 25.0,
+            color: Color.fromARGB(255, 84, 78, 78),
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.normal,
           ),
         ),
         centerTitle: true,
@@ -82,7 +89,12 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 260,
+                    height: 220,
+                  ),
+                  Icon(
+                    Icons.search,
+                    size: 150,
+                    color: Color.fromARGB(255, 6, 2, 47),
                   ),
                   Container(
                     height: 400,
@@ -175,11 +187,11 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                               ),
                             ),
                             backgroundColor: MaterialStateProperty.all(
-                              Color.fromARGB(204, 62, 128, 142).withOpacity(1),
+                              Color.fromARGB(255, 6, 2, 47).withOpacity(1),
                             ),
                           ),
                           child: const Text(
-                            "Submit",
+                            "Search",
                             style: TextStyle(fontSize: 20.0),
                           ),
                           onPressed: () {
@@ -213,8 +225,7 @@ class _DependentDropdownExampleState extends State<DependentDropdownExample> {
                                   ),
                                 ),
                                 backgroundColor: MaterialStateProperty.all(
-                                  Color.fromARGB(204, 62, 128, 142)
-                                      .withOpacity(1),
+                                  Color.fromARGB(255, 6, 2, 47).withOpacity(1),
                                 ),
                               ),
                               child: const Text(
