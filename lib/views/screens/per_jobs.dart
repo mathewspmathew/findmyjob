@@ -45,7 +45,7 @@ class PermanentJobsPage extends StatelessWidget {
               elevation: 0.0,
               centerTitle: true,
               title: const Text(
-                'Job Informations',
+                'Discover',
                 style: TextStyle(
                   fontSize: 20,
                 ),
@@ -63,7 +63,7 @@ class PermanentJobsPage extends StatelessWidget {
               elevation: 0.0,
               centerTitle: true,
               title: const Text(
-                'Job Information',
+                'Discover',
                 style: TextStyle(
                   fontSize: 20,
                 ),
