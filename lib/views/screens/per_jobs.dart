@@ -9,7 +9,7 @@ class PermanentJobsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Permanent Jobs'),
+          title: Text('Job Informations'),
         ),
         floatingActionButton: Container(
           width: 100,
