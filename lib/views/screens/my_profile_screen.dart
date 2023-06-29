@@ -3,6 +3,7 @@ import 'package:findmyjob/views/screens/map_search.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
 import 'base_nav_screen.dart';
 
 class MyProfileScreen extends StatelessWidget {
@@ -29,6 +30,8 @@ class MyProfileScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+         backgroundColor: kScaffoldBackgroundColor,
+        elevation: 0.0,
         title: Text(
           'Create Your Profile',
           style: TextStyle(
@@ -41,8 +44,8 @@ class MyProfileScreen extends StatelessWidget {
               bottomRight: Radius.circular(25),
               bottomLeft: Radius.circular(25)),
         ),
-        elevation: 0.00,
-        backgroundColor: const Color.fromARGB(255, 246, 246, 246),
+        // elevation: 0.00,
+        // backgroundColor: const Color.fromARGB(255, 246, 246, 246),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,

@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:findmyjob/views/screens/my_profile_screen.dart';
 import 'package:findmyjob/views/widgets/job_item_card.dart';
 
+import '../../constants.dart';
+
 class HomeScreen extends StatelessWidget {
   static const route = '/';
 
@@ -21,6 +23,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Find My Job'),
+         backgroundColor: kScaffoldBackgroundColor,
+        elevation: 0.0,
         actions: [
           TextButton(
             onPressed: () {
