@@ -1,3 +1,4 @@
+import 'package:findmyjob/views/screens/home_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:findmyjob/views/screens/job_details_screen.dart';
 import 'package:findmyjob/views/screens/login_screen.dart';
@@ -11,6 +12,7 @@ Map<String, Widget Function(BuildContext)> routes = {
         selectPanchayath: 'dfgsfd',
       ),
   MyProfileScreen.route: (_) => MyProfileScreen(),
+  HomeProfile.route: (_) => HomeProfile(),
   LoginScreen.route: (_) => LoginScreen(),
   SignUpScreen.route: (_) => SignUpScreen(),
 };
