@@ -128,6 +128,7 @@ class HomeScreen extends StatelessWidget {
                                 snapshot.data!.docs[index];
 
                             return JobItemCard(
+                                docid: documentSnapshot.id,
                                 jobs: documentSnapshot['category'],
                                 jobTitle: documentSnapshot['location'],
                                 jobsLogoUrl: documentSnapshot['joblogo'],
